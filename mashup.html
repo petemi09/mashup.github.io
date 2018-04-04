@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Food</title>
+	<link rel="stylesheet" type="text/css" href="mashup/mashup.css">
+	
+</head>
+
+<img src="city2.jpg" alt="title" class="center" width="600" height="200">
+
+<body>
+<br><br>
+	<input type="text" name="City" placeholder="enter city">
+<br>
+	<input type="text" name="State" placeholder="enter state">
+<br>
+	<button id="onclick" name="butt">GO!</button>
+<br><br>
+<div id="map" style="width:400px;height:400px;background:yellow"></div>
+
+<script>
+function myMap() {
+var mapOptions = {
+    center: new google.maps.LatLng(51.5, -0.12),
+    zoom: 10,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
+<footer>
+	created by Mitchell Petellin and Andrew Millan
+</footer>
+
+
+
+</body>
+</html>
