@@ -9,17 +9,16 @@ function clickedon(){
 	co.innerHTML = city
 	so.innerHTML = state
 
-	// var map;
- //    function initMap() {
- //        map = new google.maps.Map(document.getElementById('map'), {
- //        	center: {lat: -34.397, lng: 150.644},
- //    		zoom: 8
- //    });
  	var map;
+ 	var location = {lat: 43.3111, lng: -91.8036}
  	map = new google.maps.Map(document.getElementById('map'), {
-       	center: {lat: -34.397, lng: 150.644},
-    	zoom: 8
+       	center: location,
+    	zoom: 15
     });
+ 	var marker = new google.maps.Marker({
+        position: location,
+        map: map
+        });
 
     }
 
