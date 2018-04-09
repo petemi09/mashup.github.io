@@ -10,17 +10,35 @@ function clickedon(){
 	so.innerHTML = state
 
  	var map;
- 	var location = {lat: 43.3111, lng: -91.8036}
+ 	var luther = {lat: 43.3111, lng: -91.8036};
  	map = new google.maps.Map(document.getElementById('map'), {
-       	center: location,
-    	zoom: 15
+       	center: luther,
+    	zoom: 13
     });
  	var marker = new google.maps.Marker({
-        position: location,
+        position: luther,
         map: map
         });
 
+ 	var map2;
+ 	var college dr = {lat: 43.3111, lng: -91.8036};
+ 	map = new google.maps.Map(document.getElementById('map'), {
+       	center: college dr,
+    	zoom: 13
+    });
+ 	var marker = new google.maps.Marker({
+        position: college dr,
+        map: map2
+        });
+
+
+
+
     }
+
+
+    
+
 
 	// var map;
 
