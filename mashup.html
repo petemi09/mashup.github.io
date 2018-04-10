@@ -15,15 +15,24 @@
 <body>
 <br><br>
 	<input type="text" name="City" placeholder="Enter City" id="city">
+	
 <br>
 	<input type="text" name="State" placeholder="Enter State" id="state">
 <br>
 	<button onclick="clickedon()" id="go" name="butt">GO!</button>
 <br><br>
+
+<!--
+<div id="map"></div>
+ Replace the value of the key parameter with your own API key. 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&libraries=places&callback=initMap" async defer></script>
+-->
+
 <div id="map" style="width:400px;height:400px;"></div>
 
-<h1 id="city_output">City</h1>
-<h1 id="state_output">State</h1>
+<h1 id="city_output"></h1>
+<h1 id="state_output"></h1>
+
 
 <script>
     function initMap() {
