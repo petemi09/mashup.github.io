@@ -2,6 +2,7 @@
 var map;
 var infowindow;
 
+
 function initMap(){ 	
     var Decorah = {lat: 43.3111, lng: -91.8036};
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -9,8 +10,6 @@ function initMap(){
         center: Decorah
        });
     }
-
-
 
 
 function clickedon() {
@@ -23,7 +22,7 @@ function clickedon() {
 	co.innerHTML = city
 	so.innerHTML = state
 
-	var pyrmont = {lat: 43.3111, lng: -91.8036};
+	var pyrmont = {lat: 43.3033, lng: -91.7857};
 
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: pyrmont,
@@ -59,6 +58,8 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
+
+
  	//var marker = new google.maps.Marker({
     //    position: luther,
     //    map: map
