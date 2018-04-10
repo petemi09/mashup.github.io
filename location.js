@@ -1,7 +1,7 @@
 var map;
 var infowindow;
 
-function initMap() {
+function onclick() {
   var pyrmont = {lat: 43.3111, lng: -91.8036};
 
   map = new google.maps.Map(document.getElementById('map'), {
