@@ -1,6 +1,20 @@
 "use strict;"
+var map;
+var infowindow;
 
-function clickedon(){
+function initMap(){ 	
+    var Decorah = {lat: 43.3111, lng: -91.8036};
+    var map = new google.maps.Map(document.getElementById('map'), {
+       	zoom: 13,
+        center: Decorah
+       });
+    }
+
+
+
+
+function clickedon() {
+
 	let city = document.getElementById("city").value
 	let state = document.getElementById("state").value
 	let co = document.getElementById("city_output")
@@ -9,33 +23,21 @@ function clickedon(){
 	co.innerHTML = city
 	so.innerHTML = state
 
- 	var map;
- 	var luther = {lat: 43.3111, lng: -91.8036};
- 	map = new google.maps.Map(document.getElementById('map'), {
-       	center: luther,
-    	zoom: 13
-    });
+	var pyrmont = {lat: 43.3111, lng: -91.8036};
 
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: pyrmont,
+	    zoom: 15
+	  });
 
-    var map;
-var infowindow;
-
-function clickedon() {
-  var pyrmont = {lat: 43.3111, lng: -91.8036};
-
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: pyrmont,
-    zoom: 15
-  });
-
-  infowindow = new google.maps.InfoWindow();
-  var service = new google.maps.places.PlacesService(map);
-  service.nearbySearch({
-    location: pyrmont,
-    radius: 500,
-    type: ['food']
-  }, callback);
-}
+	infowindow = new google.maps.InfoWindow();
+	var service = new google.maps.places.PlacesService(map);
+	service.nearbySearch({
+		location: pyrmont,
+	    radius: 5000,
+	    type: ['restaurant']
+	  }, callback);
+	}
 
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -61,13 +63,6 @@ function createMarker(place) {
     //    position: luther,
     //    map: map
     //    });
-
- 	
-
-
-
-
-    }
 
 
     
