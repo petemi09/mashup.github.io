@@ -14,7 +14,7 @@ function initMap(){
     }
 
 
-function clickedon() {
+function clickedon1() {
 
 	let city = document.getElementById("city").value
 	let state = document.getElementById("state").value
@@ -51,26 +51,6 @@ function clickedon() {
           }
         });
 
-	let co = document.getElementById("city_output")
-	let so = document.getElementById("state_output")
-
-	co.innerHTML = city
-	so.innerHTML = state
-
-	var pyrmont = {lat: 43.3033, lng: -91.7857};
-
-	map = new google.maps.Map(document.getElementById('map'), {
-		center: pyrmont,
-	    zoom: 15
-	  });
-
-	infowindow = new google.maps.InfoWindow();
-	var service = new google.maps.places.PlacesService(map);
-	service.nearbySearch({
-		location: pyrmont,
-	    radius: 5000,
-	    type: ['restaurant']
-	  }, callback);
 	}
 
 function callback(results, status) {
