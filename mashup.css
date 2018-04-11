@@ -7,18 +7,13 @@ body {
     background-color: black;
 }
 
-/*
-map {
-  height: 100%;
+.button {
+  color: green;
 }
-/* Optional: Makes the sample page fill the window. 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-*/
 
+.button2 {
+  color: red;
+}
 
 h1, h1 {
 	display: inline;
@@ -34,6 +29,8 @@ h1 {
 }
 
 footer {
+  
+  text-align: center;
 	color: white;
 	border-top: 2px solid grey;
 	padding-top: 7px;

@@ -1,8 +1,7 @@
 "use strict;"
 var map;
 var infowindow;
-var lati;
-var long;
+
 
 function initMap(){ 	
     var Decorah = {lat: 43.3111, lng: -91.8036};
@@ -13,44 +12,30 @@ function initMap(){
     }
 
 
-
-
 function clickedon() {
 
 	let city = document.getElementById("city").value
 	let state = document.getElementById("state").value
-	let lo = document.getElementById("location")
+	let co = document.getElementById("city_output")
+	let so = document.getElementById("state_output")
 
-	lo.innerHTML = city + ", " + state
+	co.innerHTML = city
+	so.innerHTML = state
 
-	let location = city + ", " + state
+	var pyrmont = {lat: 43.3033, lng: -91.7857};
 
-	
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: pyrmont,
+	    zoom: 15
+	  });
 
-	var geocoder =  new google.maps.Geocoder();
-    geocoder.geocode( { 'address': location}, function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-          	lati = results[0].geometry.location.lat();
-            long = results[0].geometry.location.lng();
-            var pyrmont = {lat: lati, lng: long};
-
-			map = new google.maps.Map(document.getElementById('map'), {
-				center: pyrmont,
-			    zoom: 13
-			  });
-
-			infowindow = new google.maps.InfoWindow();
-			var service = new google.maps.places.PlacesService(map);
-			service.nearbySearch({
-				location: pyrmont,
-			    radius: 5000,
-			    type: ['restaurant']
-	  		}, callback);
-          } else {
-            alert("Something got wrong " + status);
-          }
-        });
-
+	infowindow = new google.maps.InfoWindow();
+	var service = new google.maps.places.PlacesService(map);
+	service.nearbySearch({
+		location: pyrmont,
+	    radius: 5000,
+	    type: ['restaurant']
+	  }, callback);
 	}
 
 function callback(results, status) {
@@ -73,6 +58,8 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
+
+
  	//var marker = new google.maps.Marker({
     //    position: luther,
     //    map: map
@@ -114,4 +101,4 @@ function createMarker(place) {
 	//       }
 	//     });
 	//   }
-	// }
+// }
