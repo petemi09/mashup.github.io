@@ -1,6 +1,8 @@
 "use strict;"
 var map;
 var infowindow;
+var lati;
+var long;
 
 function initMap(){ 	
     var Decorah = {lat: 43.3111, lng: -91.8036};
@@ -17,26 +19,38 @@ function clickedon() {
 
 	let city = document.getElementById("city").value
 	let state = document.getElementById("state").value
-	let co = document.getElementById("city_output")
-	let so = document.getElementById("state_output")
+	let lo = document.getElementById("location")
 
-	co.innerHTML = city
-	so.innerHTML = state
+	lo.innerHTML = city + ", " + state
 
-	var pyrmont = {lat: 43.3111, lng: -91.8036};
+	let location = city + ", " + state
 
-	map = new google.maps.Map(document.getElementById('map'), {
-		center: pyrmont,
-	    zoom: 15
-	  });
+	
 
-	infowindow = new google.maps.InfoWindow();
-	var service = new google.maps.places.PlacesService(map);
-	service.nearbySearch({
-		location: pyrmont,
-	    radius: 5000,
-	    type: ['restaurant']
-	  }, callback);
+	var geocoder =  new google.maps.Geocoder();
+    geocoder.geocode( { 'address': location}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+          	lati = results[0].geometry.location.lat();
+            long = results[0].geometry.location.lng();
+            var pyrmont = {lat: lati, lng: long};
+
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: pyrmont,
+			    zoom: 13
+			  });
+
+			infowindow = new google.maps.InfoWindow();
+			var service = new google.maps.places.PlacesService(map);
+			service.nearbySearch({
+				location: pyrmont,
+			    radius: 5000,
+			    type: ['restaurant']
+	  		}, callback);
+          } else {
+            alert("Something got wrong " + status);
+          }
+        });
+
 	}
 
 function callback(results, status) {
