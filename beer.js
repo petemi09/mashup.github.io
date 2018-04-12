@@ -11,6 +11,13 @@ function initMap(){
     }
 
 function clickedon2() {
+	var age = prompt("This site has adult content. Please verify your age", "");
+	// var x = parseInt(age)
+
+	if (age <21) {
+		location.href= "https://www.dea.gov/pr/multimedia-library/publications/drug_of_abuse.pdf"
+	}
+	else {
 
 	let city = document.getElementById("city").value
 	let state = document.getElementById("state").value
@@ -46,6 +53,7 @@ function clickedon2() {
             alert("Something got wrong " + status);
           }
         });
+		}
 
 	}
 
